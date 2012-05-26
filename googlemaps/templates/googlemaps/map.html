@@ -1,0 +1,34 @@
+{%load i18n%}
+<script type="text/javascript">
+//<![CDATA[
+    var map_NONE;
+    
+    
+    function load_NONE() {
+        var point = new google.maps.LatLng({{geopos_lat}}, {{geopos_lng}});
+
+        var options = {
+            zoom: 13,
+            center: point,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+             //mapTypeControl: true,
+             //navigationControl: true
+        };
+        
+        document.getElementById("map_NONE").style.visibility = 'visible';
+        map_NONE = new google.maps.Map(document.getElementById("map_NONE"), options);
+
+        var marker = new google.maps.Marker({
+                map: map_NONE,
+                position: new google.maps.LatLng({{geopos_lat}}, {{geopos_lng}}),
+                draggable: true
+        
+        });
+
+    }
+    $(document).ready(function(){
+        load_NONE();
+    });
+//]]>
+</script>
+<div id="map_NONE" style="width: {{map_width}}px; height: {{map_height}}px"></div>
